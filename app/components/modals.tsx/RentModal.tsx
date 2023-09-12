@@ -6,6 +6,8 @@ import Heading from '../Heading'
 import {categories} from '@/app/ultils/Constant'
 import CategoryInput from '../inputs/CategoryInput'
 import {FieldValue, FieldValues, useForm} from 'react-hook-form'
+import CountrySelect from '../inputs/CountrySelect'
+import dynamic from 'next/dynamic'
 
 enum STEPS {
   CATEGORY = 0,
@@ -39,6 +41,10 @@ const RentModal = () => {
   })
   
   const location = watch('location');
+
+  const Map=useMemo(()=>dynamic(()=>import('../Map'),{
+    ssr:false,
+  }),[location])
   const category = watch('category');
   const guestCount = watch('guestCount');
   const roomCount = watch('roomCount');
@@ -102,7 +108,7 @@ const RentModal = () => {
           value={location} 
           onChange={(value) => setCustomValue('location', value)} 
         />
-      {/*   <Map center={location?.latlng} /> */}
+        <Map center={location?.latlng} />
       </div>
     );
   }
