@@ -31,6 +31,7 @@ export default async function RootLayout({
       <body className={font.className}>
         <ClientOnly>
             <ToastProvider/>
+            <RentModal/>
             <RegisterModal/>
             <LoginModal/>
             <Navbar currentUser={currentUser}/>
