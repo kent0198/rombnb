@@ -18,7 +18,9 @@ const CatagoryBox:React.FC<CategoryBoxProps>=
     selected
 })=> {
     const router=useRouter()
+    
     const params=useSearchParams()
+
     const handleClick=useCallback(()=>{
         let currentQuery={}
         if (params){
@@ -28,7 +30,7 @@ const CatagoryBox:React.FC<CategoryBoxProps>=
             ...currentQuery,
             category:label,
         }
-        if(params?.get('catagory')===label){
+        if(params?.get('category')===label){
             delete updatedQuery.category
         }
         const url=qs.stringifyUrl({

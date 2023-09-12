@@ -7,6 +7,7 @@ import RegisterModal from './components/modals.tsx/RegisterModal'
 import ToastProvider from './components/providers/ToastProvider'
 import LoginModal from './components/modals.tsx/LoginModal'
 import getCurrentUser from './actions/getCurrentUser'
+import RentModal from './components/modals.tsx/RentModal'
 
 
 
